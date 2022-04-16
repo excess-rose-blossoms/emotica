@@ -1,6 +1,9 @@
 import { Formik, Field, Form } from 'formik';
+import { useState } from 'react';
 
 function App() {
+  const [story, setStory] = useState([]);
+
   return (
     <div className="App">
       <Formik
@@ -11,7 +14,17 @@ function App() {
           body: ''
         }}
         onSubmit={(values, actions) => {
-          console.log(values);
+          setStory(previousState => {
+            return [ ...previousState, values ]
+          });
+          actions.resetForm({
+            values: {
+              title: '',
+              description: '',
+              author:'',
+              body: ''
+            }
+          })
         }}
       >
         <Form>
