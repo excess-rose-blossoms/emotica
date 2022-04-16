@@ -1,8 +1,10 @@
 import { Formik, Field, Form } from 'formik';
 import { useState } from 'react';
+import Card from 'react-bootstrap/Card';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 function App() {
-  const [story, setStory] = useState([]);
+  const [stories, setStories] = useState([]);
 
   return (
     <div className="App">
@@ -14,7 +16,7 @@ function App() {
           body: ''
         }}
         onSubmit={(values, actions) => {
-          setStory(previousState => {
+          setStories(previousState => {
             return [ ...previousState, values ]
           });
           actions.resetForm({
@@ -43,6 +45,20 @@ function App() {
           <button type="submit">Submit</button>
         </Form>
       </Formik>
+      {
+        stories.map(story => (
+          <Card style={{ width: '18rem' }}>
+            <Card.Header>{story.author}</Card.Header>
+            <Card.Body>
+              <Card.Title>{story.title}</Card.Title>
+              <Card.Subtitle className="mb-2 text-muted">{story.description}</Card.Subtitle>
+              <Card.Text>
+                {story.body}
+              </Card.Text>
+            </Card.Body>
+          </Card>
+        ))
+      }
     </div>
   );
 }
