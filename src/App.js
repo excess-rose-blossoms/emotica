@@ -1,6 +1,6 @@
 import { Formik, Field, Form, ErrorMessage } from 'formik';
 import { useState } from 'react';
-import Card from 'react-bootstrap/Card';
+import StoryCard from './components/StoryCard';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 function App() {
@@ -68,20 +68,7 @@ function App() {
           <button type="submit">Submit</button>
         </Form>
       </Formik>
-      {
-        stories.map(story => (
-          <Card style={{ width: '18rem' }}>
-            <Card.Header>{story.author}</Card.Header>
-            <Card.Body>
-              <Card.Title>{story.title}</Card.Title>
-              <Card.Subtitle className="mb-2 text-muted">{story.description}</Card.Subtitle>
-              <Card.Text>
-                {story.body}
-              </Card.Text>
-            </Card.Body>
-          </Card>
-        ))
-      }
+      {stories.map(story => (<StoryCard {...story}/>))}
     </div>
   );
 }
