@@ -1,10 +1,12 @@
 import { Formik, Field, Form, ErrorMessage } from 'formik';
-import { useState } from 'react';
 import StoryCard from './components/StoryCard';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import { useSelector, useDispatch } from 'react-redux'
+import { addStory } from './redux/storiesSlice';
 
 function App() {
-  const [stories, setStories] = useState([]);
+  const stories = useSelector((state) => state.stories.value);
+  const dispatch = useDispatch();
 
   const validate = (values) => {
     const errors = {};
@@ -34,9 +36,7 @@ function App() {
           body: ''
         }}
         onSubmit={(values, actions) => {
-          setStories(previousState => {
-            return [ ...previousState, values ]
-          });
+          dispatch(addStory(values));
           actions.resetForm({
             values: {
               title: '',
@@ -44,7 +44,7 @@ function App() {
               author:'',
               body: ''
             }
-          })
+          });
         }}
         validate={validate}
       >
@@ -68,7 +68,7 @@ function App() {
           <button type="submit">Submit</button>
         </Form>
       </Formik>
-      {stories.map(story => (<StoryCard {...story}/>))}
+      {stories.map(story => (<StoryCard key={story.title} {...story}/>))}
     </div>
   );
 }
