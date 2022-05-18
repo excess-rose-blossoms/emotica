@@ -3,9 +3,33 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import { useSelector, useDispatch } from 'react-redux'
 import { addStory } from '../redux/storiesSlice';
 
+import { useQuery, gql } from "@apollo/client";
+
+const STORYQUERIES = gql`
+    query GetStories {
+        stories {
+            id
+            authorIDs
+            title
+            description
+            chapters {
+                chapterNumber
+                title
+                body
+                datePublished
+            }
+        }
+    }
+`;
+
 function StoryForm() {
   const stories = useSelector((state) => state.stories.value);
   const dispatch = useDispatch();
+
+  const { data, loading, error } = useQuery(STORYQUERIES);
+  console.log(data);
+  console.log(loading);
+  console.log(error);
 
   const validate = (values) => {
     const errors = {};
