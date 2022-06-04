@@ -3,33 +3,9 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import { useSelector, useDispatch } from 'react-redux'
 import { addStory } from '../redux/storiesSlice';
 
-import { useQuery, gql } from "@apollo/client";
-
-const STORYQUERIES = gql`
-    query GetStories {
-        stories {
-            id
-            authorIDs
-            title
-            description
-            chapters {
-                chapterNumber
-                title
-                body
-                datePublished
-            }
-        }
-    }
-`;
-
 function StoryForm() {
   const stories = useSelector((state) => state.stories.value);
   const dispatch = useDispatch();
-
-  const { data, loading, error } = useQuery(STORYQUERIES);
-  console.log(data);
-  console.log(loading);
-  console.log(error);
 
   const validate = (values) => {
     const errors = {};
@@ -51,6 +27,7 @@ function StoryForm() {
 
   return (
       <Formik
+        enableReinitialize
         initialValues={{
           title: '',
           description: '',
@@ -71,19 +48,19 @@ function StoryForm() {
         validate={validate}
       >
         <Form>
-          <label htmlFor="title">Title: </label>
+          <label htmlFor="title">Title:</label><br />
           <Field id="title" name="title"/>
           <ErrorMessage name="title" /><br />
 
-          <label htmlFor="description">Description: </label>
+          <label htmlFor="description">Description:</label><br />
           <Field id="description" name="description"/> 
           <ErrorMessage name="description" /><br />
 
-          <label htmlFor="author">Author: </label>
+          <label htmlFor="author">Author:</label><br />
           <Field id="author" name="author"/>
           <ErrorMessage name="author" /><br />
 
-          <label htmlFor="body">Body: </label>
+          <label htmlFor="body">Body:</label><br />
           <Field id="body" name="body" as="textarea"/>
           <ErrorMessage name="body" /><br />
 
