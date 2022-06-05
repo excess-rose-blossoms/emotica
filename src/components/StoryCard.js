@@ -1,17 +1,29 @@
-import Card from 'react-bootstrap/Card';
+import '../css/story-card.css'
 
 function StoryCard(props) {
   return (
-    <Card style={{ width: '18rem' }}>
-        <Card.Header>{props.author}</Card.Header>
-            <Card.Body>
-              <Card.Title>{props.title}</Card.Title>
-              <Card.Subtitle className="mb-2 text-muted">{props.description}</Card.Subtitle>
-              <Card.Text>
-                {props.body}
-              </Card.Text>
-            </Card.Body>
-    </Card>
+    <div className='story-card'>
+      <div className='content-container'>
+        <div className='info-container'>
+          <div className='header-text'>TITLE</div>
+          {props.title}
+          <div className='header-text'>AUTHOR</div>
+          {props.author}
+        </div>
+
+        <div className='divider-container'>
+          ahha
+        </div>
+
+        <div className='description-container'>
+          <div>Description: {props.description}</div>
+          <div>Body: {props.body}</div>
+        </div>
+
+      </div>
+
+      <div className='deco-container'>hoohoo</div>
+    </div>
   );
 }
 

@@ -1,0 +1,6 @@
+.story-list {
+    display: flex;
+    flex-direction: column;
+    row-gap: 50px;
+    height: 100%
+}
