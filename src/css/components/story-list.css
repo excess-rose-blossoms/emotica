@@ -1,8 +1,10 @@
 .story-list {
   display: flex;
+  padding: 4rem;
   flex-direction: column;
   row-gap: 2rem;
   height: 100%;
+  overflow: scroll;
 }
 
 /*# sourceMappingURL=story-list.css.map */
