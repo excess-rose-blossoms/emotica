@@ -17,8 +17,10 @@ function StoryCard(props) {
       </div>
         <div className='divider-container'> <span className='divider-container__text'>emotica</span> </div>
         <div className='description-container'>
-          <div>Summary<br/> {props.description}</div>
-          <div> Story<br /> {props.body}</div>
+          <div className='description-text'>SUMMARY</div>
+          <div className='description-field'>{props.description}</div>
+          <div className='description-text'>STORY</div>
+          <div className='description-field'>{props.body}</div>
         </div>
       </div>
 

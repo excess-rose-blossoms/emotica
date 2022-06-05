@@ -16,6 +16,7 @@
   flex: 0.15;
   background-image: url(/src/media/mail-stripes.svg);
   background-repeat: repeat-x;
+  margin-top: 0.4rem;
 }
 
 .content-container {
@@ -46,7 +47,6 @@
   background-image: url(/src/media/barcode.svg);
   background-repeat: repeat-y;
   background-size: cover;
-  margin-bottom: 0.4rem;
   display: flex;
   justify-content: end;
   align-items: center;
@@ -74,6 +74,19 @@
   text-align: center;
   font-weight: bold;
   margin-bottom: 0.2rem;
+}
+
+.description-field {
+  background-color: rgba(245, 245, 220, 0.7);
+  font-size: 1.25rem;
+  padding-top: 0.15rem;
+  padding-bottom: 0.15rem;
+  padding-left: 0.4rem;
+  padding-right: 0.4rem;
+}
+
+.description-text {
+  font-size: 0.9rem;
 }
 
 /*# sourceMappingURL=story-card.css.map */
