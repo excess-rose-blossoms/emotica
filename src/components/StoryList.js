@@ -1,6 +1,6 @@
 import StoryCard from './StoryCard';
 import { useSelector } from 'react-redux';
-import '../css/story-list.css';
+import '../css/components/story-list.css';
 
 function StoryList() {
   const stories = useSelector((state) => state.stories.value);

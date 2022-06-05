@@ -1,5 +1,19 @@
 import { createSlice } from '@reduxjs/toolkit'
-import { stories_data } from '../data/stories'
+
+const stories_data = [
+  {   
+      "title": "🐷🪰", 
+      "description": "🛩💥🏝👦🏼👦🏼👦🏼👦🏼🔥", 
+      "author": "🧾🥇⚓️",
+      "body": "🔥🔥🔥😱😱😱😱😱😱😱🔥🔥🔥🪨🧠🩸"
+  },
+  {   
+      "title": "👔", 
+      "description": "👨‍💼🏓💥😩💦💦💦", 
+      "author": "❄️👸🏻🧊🐉",
+      "body": "🚩🚩🚩🚩🚩🚩🚩🚩🚩🚩🚩🚩🚩🚩🚩"
+  }
+];
 
 export const storiesSlice = createSlice({
   name: 'stories',

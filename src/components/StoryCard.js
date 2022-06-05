@@ -1,5 +1,4 @@
-import '../css/story-card.css';
-import mailStripes from '../media/mail-stripes.svg';
+import '../css/components/story-card.css';
 
 function StoryCard(props) {
   return (
@@ -13,15 +12,15 @@ function StoryCard(props) {
         </div>
 
         <div className='divider-container'>
-          <span style={{"backgroundColor": "white", "writing-mode": "vertical-lr", "transform": "rotate(180deg)", "padding-top": "10px", "padding-bottom": "10px"}}>Emotica</span>
+          <span style={{"backgroundColor": "white", "writingMode": "vertical-lr", "transform": "rotate(180deg)", "paddingTop": "10px", "paddingBottom": "10px"}}>Emotica</span>
         </div>
 
         <div className='description-container'>
-          <div style={{"padding-bottom": "10px"}}>
+          <div style={{"paddingBottom": "10px"}}>
             Summary<br/>
             {props.description}
           </div>
-          <div style={{"border-top":"3px dotted black", "padding-top": "10px"}}>
+          <div style={{"borderTop":"3px dotted black", "paddingTop": "10px"}}>
           Story<br />
           {props.body}
           </div>
