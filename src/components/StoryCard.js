@@ -1,4 +1,5 @@
-import '../css/story-card.css'
+import '../css/story-card.css';
+import mailStripes from '../media/mail-stripes.svg';
 
 function StoryCard(props) {
   return (
@@ -12,7 +13,6 @@ function StoryCard(props) {
         </div>
 
         <div className='divider-container'>
-          ahha
         </div>
 
         <div className='description-container'>
@@ -22,7 +22,7 @@ function StoryCard(props) {
 
       </div>
 
-      <div className='deco-container'>hoohoo</div>
+      <div className='deco-container'></div>
     </div>
   );
 }
