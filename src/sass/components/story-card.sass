@@ -1,49 +1,70 @@
-.story-card 
-	background-color: white 
-	padding-top: 20px 
-	padding-bottom: 20px 
-	border: 2px black solid 
-	border-radius: 25px 
-	height: 200px 
-	display: flex 
-	flex-direction: column 
-	font-family: 'Courier New', Courier, monospace 
-	box-shadow: 10px 10px 5px darkslateblue 
+@import ../_variables
 
-.deco-container 
-	flex: 0.15 
-	overflow: auto 
+.story-card 
+	display: flex
+	flex-direction: column
+	font-family: $card-font
+	font-size: $font-size
+	background-color: white 
+	height: 12rem
+	padding-top: $card-padding
+	padding-bottom: $card-padding
+	border: 2px black solid 
+	border-radius: $card-border-radius
+	box-shadow: 10px 10px 5px darkslateblue
+
+.deco-container
+	flex: 0.15
 	background-image: url(/src/media/mail-stripes.svg) 
-	background-repeat: no-repeat 
-	background-size: 150% 150% 
-	background-position: -1px -5px 
+	background-repeat: repeat-x
+
 .content-container 
 	flex: 1 
 	display: flex 
 	flex-direction: row 
 	overflow: auto 
+
 .info-container 
 	flex: 3 
-	margin-left: 25px 
-	padding-left: 10px 
-	border-left: 2px black dashed 
+	margin-left: 2rem 
+	padding-left: 1rem 
+	padding-right: 0.5rem 
+	border-left: 0.15rem black dashed
+
+.info-container__item
+	flex: 1
+
+.emoji-text
+	font-size: $emoji-font-size
+
+
 .divider-container 
-	flex: 0.8 
+	flex: 0.8
 	background-image: url(/src/media/barcode.svg) 
-	background-repeat: no-repeat 
-	background-position: -6px 
+	background-repeat: repeat-y
 	background-size: cover 
-	margin-bottom: 8px 
-	text-align: center 
-	padding-top: 3% 
+	margin-bottom: 0.4rem
+	display: flex
+	justify-content: end
+	align-items: center
+
+.divider-container__text
+	background-color: white
+	writing-mode: vertical-lr
+	transform: rotate(180deg)
+	padding-top: 0.6rem
+	padding-bottom: 0.6rem
+	font-size: $font-size-small
+
 .description-container 
-	flex: 6 
-	padding-right: 30px 
+	flex: 6
+	padding-left: 1rem
+	padding-right: 1rem
+
 .header-text 
 	background-color: #131E80 
-	color: white 
-	max-width: 80% 
-	padding: 2px 
+	color: white  
+	padding: 0.05rem
 	text-align: center 
 	font-weight: bold 
-	margin-bottom: 7px 
+	margin-bottom: 0.2rem 

@@ -7,12 +7,12 @@
 }
 
 .search-item__right {
-  padding: 50px;
-  flex: 1;
+  padding: 5rem;
+  flex: 1.1;
 }
 
 .search-item__left {
-  padding: 50px;
+  padding: 5rem;
   flex: 1;
   background-color: white;
 }

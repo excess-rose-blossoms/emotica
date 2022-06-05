@@ -1,6 +1,6 @@
 import StoryList from './components/StoryList';
 import StoryForm from './components/StoryForm';
-import './css/app.css';
+import './css/components/app.css';
 
 function App() {
   return (
