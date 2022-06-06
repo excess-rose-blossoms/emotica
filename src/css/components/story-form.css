@@ -1,0 +1,28 @@
+.form-container {
+  height: 100%;
+  width: 100%;
+}
+
+.form {
+  font-family: "Times New Roman";
+  padding: 4rem;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.body {
+  flex: 1;
+  resize: none;
+}
+
+.submit-button {
+  background-image: url(/src/media/love-letter.svg);
+  background-size: 100% 100%;
+  width: 15rem;
+  height: 7.5rem;
+  border: none;
+  background-repeat: no-repeat;
+}
+
+/*# sourceMappingURL=story-form.css.map */
