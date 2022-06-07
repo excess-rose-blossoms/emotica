@@ -7,8 +7,7 @@ function App() {
   return (
     <div className="search-container">
       <div className="search-item__left">
-        <div className="item-tl"><StoryForm/></div>
-        <div className="item-bl"><EmojiKeyboard/></div>
+        <StoryForm/>
       </div>
       <div className="search-item__right"> <StoryList/> </div>
     </div>

@@ -3,10 +3,12 @@
 .form-container
     height: 100%
     width: 100%
+    display: flex
+    flex-direction: column
+    padding: $large-space
 
 .form
     font-family: $form-font
-    padding: $large-space
     display: flex
     flex-direction: column
     height: 100%
@@ -14,11 +16,3 @@
 .body
     flex:1
     resize: none
-
-.submit-button
-    background-image: url(/src/media/love-letter.svg)
-    background-size: 100% 100%
-    width: 15rem
-    height: 7.5rem
-    border: none
-    background-repeat: no-repeat
