@@ -10,14 +10,7 @@ function EmojiKeyboard(props) {
   };
 
   return (
-    <div className="emoji-keyboard">
-      {chosenEmoji ? (
-        <span>You chose: {chosenEmoji.emoji}</span>
-      ) : (
-        <span>No emoji Chosen</span>
-      )}
-      <Picker onEmojiClick={onEmojiClick} />
-    </div>
+    <Picker onEmojiClick={onEmojiClick} pickerStyle={props.pickerStyle}/>
   );
 }
 

@@ -16,6 +16,10 @@ function StoryForm() {
   const [author, setAuthor] = useState("");
   const [body, setBody] = useState("");
   const [chosenField, setChosenField] = useState("title")
+  const FIELDTITLE = "title";
+  const FIELDDESCRIPTION = "description";
+  const FIELDAUTHOR = "author";
+  const FIELDBODY = "body";
 
   const validate = (values) => {
     const errors = {};
@@ -36,7 +40,22 @@ function StoryForm() {
   };
 
   const addToTitle = (emoji) => {
-    setTitle(title+emoji)
+    switch(chosenField) {
+      case FIELDTITLE:
+        setTitle(title+emoji);
+        break;
+      case FIELDDESCRIPTION:
+        setDescription(description+emoji);
+        break;
+      case FIELDAUTHOR:
+        setAuthor(author+emoji);
+        break;
+      case FIELDBODY:
+        setBody(body+emoji);
+        break;
+      default:
+        return;
+    }
   }
 
   return (
@@ -66,23 +85,23 @@ function StoryForm() {
           <label htmlFor="title">
             Title: <ErrorMessage className="error-message" name="title"/>
           </label>
-          <Field id="title" name="title" value={title}/>
+          <Field id="title" name="title" value={title} onFocus={() => setChosenField(FIELDTITLE)}/>
 
           <label htmlFor="author">
             Author: <ErrorMessage className="error-message" name="author" />
           </label>
-          <Field id="author" name="author" value={author}/>
+          <Field id="author" name="author" value={author} onFocus={() => setChosenField(FIELDAUTHOR)}/>
 
           <label htmlFor="description">
             Description:{" "}
             <ErrorMessage className="error-message" name="description" />
           </label>
-          <Field id="description" name="description" value={description}/>
+          <Field id="description" name="description" value={description} onFocus={() => setChosenField(FIELDDESCRIPTION)}/>
 
           <label htmlFor="body">
             Body: <ErrorMessage className="error-message" name="body" />
           </label>
-          <Field className="body" id="body" name="body" as="textarea" value={body}/>
+          <Field className="body" id="body" name="body" as="textarea" value={body} onFocus={() => setChosenField(FIELDBODY)}/>
 
           <button
             type="submit"
@@ -99,7 +118,7 @@ function StoryForm() {
           </button>
         </Form>
       </Formik>
-      <EmojiKeyboard useChosenEmoji={addToTitle}/>
+      <EmojiKeyboard useChosenEmoji={addToTitle} pickerStyle={{ width: '100%', flex: '1', borderShadow: 'none'}}/>
     </div>
   );
 }
