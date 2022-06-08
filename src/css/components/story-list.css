@@ -1,10 +1,15 @@
+.list-container {
+  height: 100%;
+  background-color: white;
+}
+
 .story-list {
   display: flex;
-  padding: 4rem;
   flex-direction: column;
   row-gap: 2rem;
   height: 100%;
   overflow: scroll;
+  padding: 2rem;
 }
 
 /*# sourceMappingURL=story-list.css.map */

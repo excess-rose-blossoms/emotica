@@ -6,13 +6,14 @@
 }
 
 .search-item__right {
-  flex: 1.1;
-  background-color: blueviolet;
+  flex: 1.2;
+  background-color: white;
 }
 
 .search-item__left {
   display: flex;
   flex: 1;
+  background-color: white;
   flex-direction: column;
 }
 

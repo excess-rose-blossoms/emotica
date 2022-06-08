@@ -4,13 +4,13 @@
   font-family: "Courier New", Courier, monospace;
   font-size: 1rem;
   background-color: white;
-  min-height: 12rem;
-  max-height: 12rem;
+  min-height: 12.54rem;
+  max-height: 12.54rem;
   padding-top: 0.75rem;
   padding-bottom: 0.75rem;
-  border: 2px black solid;
+  border: 2px solid black;
   border-radius: 25px;
-  box-shadow: 10px 10px 5px darkslateblue;
+  box-shadow: 10px 10px 5px #cccccc;
 }
 
 .deco-container {

@@ -6,16 +6,34 @@
 }
 
 .form {
-  font-family: "Times New Roman";
+  font-family: "Menlo";
   display: flex;
-  flex: 1;
+  flex: 1.5;
   flex-direction: column;
   height: 100%;
+  row-gap: 1rem;
   padding: 2rem;
 }
 
-.body {
+.form-row {
+  display: flex;
+}
+
+.form-row-body {
+  display: flex;
+  height: 100%;
+}
+
+.text {
   flex: 1;
+  font-size: 1.1rem;
+  display: flex;
+  justify-content: flex-end;
+  padding-right: 1rem;
+}
+
+.field {
+  flex: 5;
   resize: none;
 }
 

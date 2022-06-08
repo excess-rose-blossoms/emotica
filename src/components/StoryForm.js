@@ -21,20 +21,23 @@ function StoryForm() {
   const FIELDAUTHOR = "author";
   const FIELDBODY = "body";
 
+  const field_style = {border: '2px solid black', fontSize: '1.5rem'};
+  const emoji_keyboard_style = { width: '30rem', flex: '1', borderShadow: 'none', margin: '2rem', }
+
   const validate = (values) => {
     const errors = {};
 
     if (!values.title) {
-      errors.title = "(Required title!)";
+      errors.title = "Required!";
     }
     if (!values.description) {
-      errors.description = "(Required description!)";
+      errors.description = "Required!";
     }
     if (!values.author) {
-      errors.author = "(Required author!)";
+      errors.author = "Required!";
     }
     if (!values.body) {
-      errors.body = "(Required body!)";
+      errors.body = "Required!";
     }
     return errors;
   };
@@ -82,26 +85,21 @@ function StoryForm() {
         validate={validate}
       >
         <Form className="form">
-          <label htmlFor="title">
-            Title: <ErrorMessage className="error-message" name="title"/>
+          <label className="form-row" htmlFor="title">
+            <span className="text">TITLE<br/><ErrorMessage className="error-message" name="title"/></span> <Field className="field" id="title" name="title" value={title} onFocus={() => setChosenField(FIELDTITLE)} style={field_style}/>
           </label>
-          <Field id="title" name="title" value={title} onFocus={() => setChosenField(FIELDTITLE)}/>
 
-          <label htmlFor="author">
-            Author: <ErrorMessage className="error-message" name="author" />
+          <label className="form-row" htmlFor="author">
+            <span className="text">AUTHOR<br/><ErrorMessage className="error-message" name="author" /></span> <Field className="field" id="author" name="author" value={author} onFocus={() => setChosenField(FIELDAUTHOR)} style={field_style}/>
           </label>
-          <Field id="author" name="author" value={author} onFocus={() => setChosenField(FIELDAUTHOR)}/>
 
-          <label htmlFor="description">
-            Description:{" "}
-            <ErrorMessage className="error-message" name="description" />
+          <label className="form-row" htmlFor="description">
+            <span className="text">SUMMARY<br/><ErrorMessage className="error-message" name="description" /></span> <Field className="field" id="description" name="description" value={description} onFocus={() => setChosenField(FIELDDESCRIPTION)} style={field_style}/>
           </label>
-          <Field id="description" name="description" value={description} onFocus={() => setChosenField(FIELDDESCRIPTION)}/>
 
-          <label htmlFor="body">
-            Body: <ErrorMessage className="error-message" name="body" />
+          <label className="form-row-body" htmlFor="body">
+            <span className="text">BODY<br/><ErrorMessage className="error-message" name="body" /></span> <Field className="field" id="body" name="body" as="textarea" value={body} onFocus={() => setChosenField(FIELDBODY)} style={field_style}/>
           </label>
-          <Field className="body" id="body" name="body" as="textarea" value={body} onFocus={() => setChosenField(FIELDBODY)}/>
 
           <button
             type="submit"
@@ -118,7 +116,7 @@ function StoryForm() {
           </button>
         </Form>
       </Formik>
-      <EmojiKeyboard useChosenEmoji={addToTitle} pickerStyle={{ width: '100%', flex: '1', borderShadow: 'none'}}/>
+      <EmojiKeyboard useChosenEmoji={addToTitle} pickerStyle={emoji_keyboard_style}/>
     </div>
   );
 }
