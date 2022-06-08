@@ -8,8 +8,8 @@
 
 .form {
   display: flex;
-  column-gap: 0.4rem;
-  padding-bottom: 2rem;
+  column-gap: 1.5rem;
+  padding-bottom: 1.5rem;
   flex: 1.5;
 }
 

@@ -1,9 +1,23 @@
 .navbar {
-  height: 4rem;
   color: white;
   background-color: black;
   font-family: "Menlo";
-  font-size: 3rem;
+  font-size: 2.5rem;
+  padding-left: 2rem;
+  font-weight: bold;
+  display: flex;
+}
+
+.nav-header {
+  flex: 10;
+}
+
+.nav-content {
+  flex: 1;
+  font-size: 1.1rem;
+  font-weight: normal;
+  padding-right: 2rem;
+  text-decoration: underline;
 }
 
 /*# sourceMappingURL=navbar.css.map */

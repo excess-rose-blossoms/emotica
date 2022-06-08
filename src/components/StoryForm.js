@@ -22,7 +22,7 @@ function StoryForm() {
   const FIELDBODY = "body";
 
   const field_style = {border: '2px solid black', fontSize: '1.5rem'};
-  const emoji_keyboard_style = {padding: '1rem', width: '100%', flex: '1', boxShadow: 'none', fontFamily: 'Menlo', border: '2px black solid', color:'black !important'}
+  const emoji_keyboard_style = {paddingTop: '1rem', paddingBottom: '1rem', paddingLeft: '1.5rem', paddingRight: '1.5rem', width: '100%', flex: '1', boxShadow: 'none', fontFamily: 'Menlo', border: '2px black solid', color:'black !important'}
 
   const validate = (values) => {
     const errors = {};

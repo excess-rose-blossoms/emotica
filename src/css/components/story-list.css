@@ -1,15 +1,21 @@
 .list-container {
   height: 100%;
-  background-color: white;
+  background-image: url(/src/media/cardboard_texture.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  box-shadow: 5px 0px 20px #392d20 inset;
 }
 
 .story-list {
   display: flex;
   flex-direction: column;
-  row-gap: 2rem;
+  row-gap: 1.5rem;
   height: 100%;
   overflow: scroll;
-  padding: 2rem;
+  padding-top: 1.5rem;
+  padding-bottom: 1.5rem;
+  padding-left: 2.5rem;
+  padding-right: 2.5rem;
 }
 
 /*# sourceMappingURL=story-list.css.map */
