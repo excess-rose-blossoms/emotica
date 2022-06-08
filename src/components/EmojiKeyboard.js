@@ -10,7 +10,7 @@ function EmojiKeyboard(props) {
   };
 
   return (
-    <Picker onEmojiClick={onEmojiClick} pickerStyle={props.pickerStyle}/>
+    <div className='emoji-keyboard'><Picker onEmojiClick={onEmojiClick} pickerStyle={props.pickerStyle}/></div>
   );
 }
 

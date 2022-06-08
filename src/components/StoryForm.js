@@ -22,7 +22,7 @@ function StoryForm() {
   const FIELDBODY = "body";
 
   const field_style = {border: '2px solid black', fontSize: '1.5rem'};
-  const emoji_keyboard_style = { width: '30rem', flex: '1', borderShadow: 'none', margin: '2rem', }
+  const emoji_keyboard_style = {padding: '1rem', width: '100%', flex: '1', boxShadow: 'none', fontFamily: 'Menlo', border: '2px black solid', color:'black !important'}
 
   const validate = (values) => {
     const errors = {};
@@ -85,6 +85,7 @@ function StoryForm() {
         validate={validate}
       >
         <Form className="form">
+          <div className="row-container">
           <label className="form-row" htmlFor="title">
             <span className="text">TITLE<br/><ErrorMessage className="error-message" name="title"/></span> <Field className="field" id="title" name="title" value={title} onFocus={() => setChosenField(FIELDTITLE)} style={field_style}/>
           </label>
@@ -100,7 +101,7 @@ function StoryForm() {
           <label className="form-row-body" htmlFor="body">
             <span className="text">BODY<br/><ErrorMessage className="error-message" name="body" /></span> <Field className="field" id="body" name="body" as="textarea" value={body} onFocus={() => setChosenField(FIELDBODY)} style={field_style}/>
           </label>
-
+          </div>
           <button
             type="submit"
             className="submit-button"

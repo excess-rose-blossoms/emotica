@@ -3,16 +3,23 @@
   width: 100%;
   display: flex;
   flex-direction: column;
+  padding: 1.5rem;
 }
 
 .form {
+  display: flex;
+  column-gap: 0.4rem;
+  padding-bottom: 2rem;
+  flex: 1.5;
+}
+
+.row-container {
   font-family: "Menlo";
   display: flex;
-  flex: 1.5;
+  flex: 2;
   flex-direction: column;
   height: 100%;
   row-gap: 1rem;
-  padding: 2rem;
 }
 
 .form-row {
@@ -35,6 +42,10 @@
 .field {
   flex: 5;
   resize: none;
+}
+
+.submit-button {
+  align-self: flex-end;
 }
 
 /*# sourceMappingURL=story-form.css.map */
