@@ -12,6 +12,18 @@ const stories_data = [
       "description": "👨‍💼🏓💥😩💦💦💦", 
       "author": "❄️👸🏻🧊🐉",
       "body": "🚩🚩🚩🚩🚩🚩🚩🚩🚩🚩🚩🚩🚩🚩🚩"
+  },
+  {
+    "title": "👑💍",
+    "description": "💍3️⃣➡️🧝‍♂️💍7️⃣➡️🧔‍♂️🏔💍9️⃣➡️🙎‍♂️⚠️🌋👁💍",
+    "author": "⤴️®️®️",
+    "body": "👨‍🌾💍👨‍🌾👨‍🌾👨‍🌾🧙‍♂️🤴🧔🧔🧝‍♂️🦅🦅🌋👁",
+  },
+  {
+    "title": "",
+    "description": "",
+    "author": "",
+    "body": "",
   }
 ];
 
