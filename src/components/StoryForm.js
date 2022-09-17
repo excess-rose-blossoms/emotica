@@ -1,4 +1,3 @@
-import { Formik, Field, Form, ErrorMessage } from "formik";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { useSelector, useDispatch } from "react-redux";
 import { addStory } from "../redux/storiesSlice";
@@ -7,6 +6,7 @@ import { love_letter } from "./All";
 import Icon from "./Icon";
 import {useState} from 'react';
 import EmojiKeyboard from "./EmojiKeyboard";
+import emojiRegex from "emoji-regex";
 
 function StoryForm() {
   const stories = useSelector((state) => state.stories.value);
@@ -15,34 +15,36 @@ function StoryForm() {
   const [description, setDescription] = useState("");
   const [author, setAuthor] = useState("");
   const [body, setBody] = useState("");
-  const [chosenField, setChosenField] = useState("title")
+  const [chosenField, setChosenField] = useState("title");
   const FIELDTITLE = "title";
   const FIELDDESCRIPTION = "description";
   const FIELDAUTHOR = "author";
   const FIELDBODY = "body";
+  const NOEMOJIREGEX = /\P{Extended_Pictographic}/u;
 
   const field_style = {border: '2px solid black', fontSize: '1.5rem'};
   const emoji_keyboard_style = {paddingTop: '1rem', paddingBottom: '1rem', paddingLeft: '1.5rem', paddingRight: '1.5rem', width: '100%', flex: '1', boxShadow: 'none', fontFamily: 'Menlo', border: '2px black solid', color:'black !important'}
 
-  const validate = (values) => {
-    const errors = {};
+  // const validate = (values) => {
+  //   const errors = {};
 
-    if (!values.title) {
-      errors.title = "Required!";
-    }
-    if (!values.description) {
-      errors.description = "Required!";
-    }
-    if (!values.author) {
-      errors.author = "Required!";
-    }
-    if (!values.body) {
-      errors.body = "Required!";
-    }
-    return errors;
-  };
+  //   if (!values.title) {
+  //     errors.title = "Required!";
+  //   }
+  //   if (!values.description) {
+  //     errors.description = "Required!";
+  //   }
+  //   if (!values.author) {
+  //     errors.author = "Required!";
+  //   }
+  //   if (!values.body) {
+  //     errors.body = "Required!";
+  //   }
+  //   return errors;
+  // };
 
-  const addToTitle = (emoji) => {
+
+  const addEmojiToChosenValue = (emoji) => {
     switch(chosenField) {
       case FIELDTITLE:
         setTitle(title+emoji);
@@ -61,45 +63,47 @@ function StoryForm() {
     }
   }
 
+  const handleChange = (event) => {
+    if (NOEMOJIREGEX.test(event.target.value)) {
+      return;
+    }
+
+    switch(chosenField) {
+      case FIELDTITLE:
+        setTitle(event.target.value);
+        break;
+      case FIELDDESCRIPTION:
+        setDescription(event.target.value);
+        break;
+      case FIELDAUTHOR:
+        setAuthor(event.target.value);
+        break;
+      case FIELDBODY:
+        setBody(event.target.value);
+        break;
+      default:
+        return;
+    }
+  };
+
   return (
     <div className="form-container">
-      <Formik
-        enableReinitialize
-        initialValues={{
-          title: "",
-          description: "",
-          author: "",
-          body: "",
-        }}
-        onSubmit={(values, actions) => {
-          // dispatch(addStory(values));
-          actions.resetForm({
-            values: {
-              title: "",
-              description: "",
-              author: "",
-              body: "",
-            },
-          });
-        }}
-        validate={validate}
-      >
-        <Form className="form">
+        <form className="form">
           <div className="row-container">
           <label className="form-row" htmlFor="title">
-            <span className="text">TITLE<br/><ErrorMessage className="error-message" name="title"/></span> <Field className="field" id="title" name="title" value={title} onFocus={() => setChosenField(FIELDTITLE)} style={field_style}/>
+            <span className="text">TITLE<br/></span> <input className="field" id="title" name="title" value={title} onChange={handleChange} onFocus={() => setChosenField(FIELDTITLE)} style={field_style}/>
           </label>
 
           <label className="form-row" htmlFor="author">
-            <span className="text">AUTHOR<br/><ErrorMessage className="error-message" name="author" /></span> <Field className="field" id="author" name="author" value={author} onFocus={() => setChosenField(FIELDAUTHOR)} style={field_style}/>
+            <span className="text">AUTHOR<br/></span> <input className="field" id="author" name="author" value={author} onChange={handleChange} onFocus={() => setChosenField(FIELDAUTHOR)} style={field_style}/>
           </label>
 
           <label className="form-row" htmlFor="description">
-            <span className="text">SUMMARY<br/><ErrorMessage className="error-message" name="description" /></span> <Field className="field" id="description" name="description" value={description} onFocus={() => setChosenField(FIELDDESCRIPTION)} style={field_style}/>
+            <span className="text">SUMMARY<br/></span> <input className="field" id="description" name="description" value={description} onChange={handleChange} onFocus={() => setChosenField(FIELDDESCRIPTION)} style={field_style}/>
           </label>
 
           <label className="form-row-body" htmlFor="body">
-            <span className="text">BODY<br/><ErrorMessage className="error-message" name="body" /></span> <Field className="field" id="body" name="body" as="textarea" value={body} onFocus={() => setChosenField(FIELDBODY)} style={field_style}/>
+            <span className="text">BODY<br/></span> <input className="field" id="body" name="body" as="textarea" value={body} onChange={handleChange} onFocus={() => setChosenField(FIELDBODY)} style={field_style}/>
           </label>
           </div>
           <button
@@ -115,9 +119,8 @@ function StoryForm() {
           >
             <Icon icon={love_letter} alt={"ahhh"} />
           </button>
-        </Form>
-      </Formik>
-      <EmojiKeyboard useChosenEmoji={addToTitle} pickerStyle={emoji_keyboard_style}/>
+        </form>
+      <EmojiKeyboard useChosenEmoji={addEmojiToChosenValue} pickerStyle={emoji_keyboard_style}/>
     </div>
   );
 }
