@@ -1,6 +1,6 @@
 .list-container {
   height: 100%;
-  overflow: scroll;
+  overflow: auto;
   background-image: url(/src/media/cardboard_texture.jpg);
   background-size: cover;
   background-repeat: no-repeat;
@@ -12,7 +12,7 @@
   flex-direction: column;
   row-gap: 1.5rem;
   height: 100%;
-  overflow: scroll;
+  overflow: auto;
   padding-top: 1.5rem;
   padding-bottom: 1.5rem;
   padding-left: 2.5rem;

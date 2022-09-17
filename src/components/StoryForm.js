@@ -6,7 +6,6 @@ import { love_letter } from "./All";
 import Icon from "./Icon";
 import {useState} from 'react';
 import EmojiKeyboard from "./EmojiKeyboard";
-import emojiRegex from "emoji-regex";
 
 function StoryForm() {
   const stories = useSelector((state) => state.stories.value);
@@ -22,7 +21,7 @@ function StoryForm() {
   const FIELDBODY = "body";
   const NOEMOJIREGEX = /\P{Extended_Pictographic}/u;
 
-  const field_style = {border: '2px solid black', fontSize: '1.5rem'};
+  const field_style = {border: '2px solid black', fontSize: '1.5rem', resize: 'none'};
   const emoji_keyboard_style = {paddingTop: '1rem', paddingBottom: '1rem', paddingLeft: '1.5rem', paddingRight: '1.5rem', width: '100%', flex: '1', boxShadow: 'none', fontFamily: 'Menlo', border: '2px black solid', color:'black !important'}
 
   // const validate = (values) => {
@@ -86,8 +85,24 @@ function StoryForm() {
     }
   };
 
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    dispatch(addStory({
+      title,
+      description,
+      author,
+      body
+    }));
+
+    // clear all fields
+    setTitle("");
+    setDescription("");
+    setAuthor("");
+    setBody("");
+  } 
+
   return (
-    <div className="form-container">
+    <div className="form-container" onSubmit={handleSubmit}>
         <form className="form">
           <div className="row-container">
           <label className="form-row" htmlFor="title">
