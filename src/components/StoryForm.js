@@ -72,7 +72,7 @@ function StoryForm() {
           body: "",
         }}
         onSubmit={(values, actions) => {
-          dispatch(addStory(values));
+          // dispatch(addStory(values));
           actions.resetForm({
             values: {
               title: "",
