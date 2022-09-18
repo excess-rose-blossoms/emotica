@@ -1,27 +1,3 @@
-type Query {
-   stories(id: ID):[Story!]!
-   users(id: ID): [Users!]!
-}
+# Emotica
 
-type User {
-	id: ID!
-	username: String!
-	description: String
-	stories(id: ID): [Story!]!
-}
-
-type Story {
-	id: ID!
-	authors: [User!]!
-	title: String!
-	description: String
-	chapters(number: Int): [Chapter!]!
-}
-
-type Chapter {
-	number: Int!
-	title: String!
-	body: String!
-	story: Story!
-	datePublished: String! #temp
-}
+Emotica is a story-writing and publishing web application where all entries are limited to emoji. A demo can be found here: https://emotica.netlify.app/
