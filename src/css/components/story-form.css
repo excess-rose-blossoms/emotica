@@ -1,0 +1,54 @@
+.form-container {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  padding: 1.5rem;
+  resize: none;
+}
+
+.form {
+  display: flex;
+  column-gap: 1.5rem;
+  padding-bottom: 1.5rem;
+  flex: 1.5;
+}
+
+.row-container {
+  font-family: "Menlo";
+  display: flex;
+  flex: 2;
+  flex-direction: column;
+  height: 100%;
+  row-gap: 1rem;
+  resize: none;
+}
+
+.form-row {
+  display: flex;
+}
+
+.form-row-body {
+  display: flex;
+  height: 100%;
+  resize: none;
+}
+
+.text {
+  flex: 1;
+  font-size: 1.1rem;
+  display: flex;
+  justify-content: flex-end;
+  padding-right: 1rem;
+}
+
+.field {
+  flex: 5;
+  resize: none;
+}
+
+.submit-button {
+  align-self: flex-end;
+}
+
+/*# sourceMappingURL=story-form.css.map */

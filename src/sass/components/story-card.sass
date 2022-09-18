@@ -1,0 +1,81 @@
+@import ../_variables
+
+.story-card 
+	display: flex
+	flex-direction: column
+	font-family: $card-font
+	font-size: $font-size
+	background-color: white 
+	min-height: $card-height
+	max-height: $card-height
+	padding-top: $card-padding
+	padding-bottom: $card-padding
+	border: $border-settings
+	border-radius: $card-border-radius
+	box-shadow: $card-shadow
+
+.deco-container
+	flex: 0.15
+	background-image: url(/src/media/mail-stripes.svg) 
+	background-repeat: repeat-x
+	margin-top: $xs-space
+
+.content-container 
+	flex: 1 
+	display: flex 
+	flex-direction: row 
+	overflow: auto 
+
+.info-container 
+	flex: 3 
+	margin-left: 2rem 
+	padding-left: 1rem 
+	padding-right: 0.5rem 
+	border-left: 0.15rem black dashed
+
+.info-container__item
+	flex: 1
+
+.emoji-text
+	font-size: $emoji-font-size
+
+.divider-container 
+	flex: 0.8
+	background-image: url(/src/media/barcode.svg) 
+	background-repeat: repeat-y
+	background-size: cover 
+	display: flex
+	justify-content: end
+	align-items: center
+
+.divider-container__text
+	background-color: white
+	writing-mode: vertical-lr
+	transform: rotate(180deg)
+	padding-top: 0.6rem
+	padding-bottom: 0.6rem
+	font-size: $font-size-small
+
+.description-container 
+	flex: 6
+	padding-left: 1rem
+	padding-right: 1rem
+
+.header-text 
+	background-color: #131E80 
+	color: white  
+	padding: 0.05rem
+	text-align: center
+	font-weight: bold 
+	margin-bottom: 0.2rem 
+
+.description-field
+	background-color: rgba(beige, 0.7)
+	font-size: $emoji-font-size-medium
+	padding-top: $xxs-space
+	padding-bottom: $xxs-space
+	padding-left: $xs-space
+	padding-right: $xs-space
+
+.description-text
+	font-size: $font-size-medium
